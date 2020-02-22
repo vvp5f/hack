@@ -3,15 +3,37 @@
     <ion-title>
       Food Profile
     </ion-title>
-  </ion-toolbar>
-</ion-header>
+  </ion-toolbar>  
+  <ion-searchbar showCancelButton="focus" size="small" placeholder="Search for recipe">
+</ion-searchbar>
+<ion-button>
+  Search
+  <ion-icon slot="end" name="search"></ion-icon>
+</ion-button>
 
+<div *ngFor="let entry of form">
+  <ion-item *ngIf="entry.isChecked">
+    <ion-label>{{entry.val}}</ion-label>
+  </ion-item>
+</div>
+
+</ion-header>
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 3</ion-title>
     </ion-toolbar>
   </ion-header>
+  <div>
+  
+    <ion-list>
 
+    <ion-item *ngFor="let entry of form">
+      <ion-label>{{entry.val}}</ion-label>
+      <ion-checkbox slot="start" [(ngModel)]="entry.isChecked"></ion-checkbox>
+    </ion-item>
+  </ion-list>  
+  </div>
+  
   <app-explore-container name="Tab 3 page"></app-explore-container>
 </ion-content>
